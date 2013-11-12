@@ -1,0 +1,71 @@
+int s = socket(domain, type, main)
+
+# Application. Binds as a Server.
+
+# My sockets.
+# choose o port number
+
+# specify wihch port you want.
+#sin_port
+# only worry the one that we need. 
+
+
+#passive and active users.
+#the one that opens the server, listen and server
+# Connection setup.  we want to seprate all the sockes.
+
+We spilt into several different sockets.
+100 sockets to different person taht I have.   
+
+
+
+Does that mean that we have different socket? 
+We can connect with multiple sockets. Great. now connection.
+Copy data,  the only difference btw client and server is the thing. 
+
+
+
+#Python. Socket program.
+"""
+Call bind,
+call listen
+parameter = how many people I can send at one time. You need a lot of server for many sockets.
+
+Source -> destination function.  Then you know how.
+
+server.accept() 
+
+data = s.rec()
+
+server.close 
+
+What's the cool function here.  Inputready.
+
+we copy
+What select does. it scan through, and copy the new one into the vector.  Somebody sends th new data packet.  
+
+The reason that it's important, we know it's awesome. 
+
+
+Wait for input. accept and Recv are blocking. 
+"""
+
+Here's how it works. add server fd.
+Wait for read on any 
+
+I'm going to call accept, and I am going to add it into the vecotr. (add)
+Now, we call it again, iteration loop, someone sends me a data, then we will use it and again.
+"""
+
+This is the structure and what it looks like.
+
+
+
+169.229.49.107
+
+SSH into the thing. T
+
+s.accept.receive,
+s.connect((10,0,0,150000))
+s.send("Hello Server")
+s.close

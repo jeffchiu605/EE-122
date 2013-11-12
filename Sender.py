@@ -35,7 +35,6 @@ class Sender(BasicSender.BasicSender):
     last_packet_no = None
     ack_no = 0 # the last ack we received
 
-
     # Main sending loop.
     def start(self):
         self.send_receive_loop()
@@ -45,21 +44,15 @@ class Sender(BasicSender.BasicSender):
         # it will be called ONCE at the beginning of the program
         # when it is called, it will fill up the array self.message
         # with EVERY single packet.
-        if self.msg_type != 'end':
-            msg = self.infile.read(self.packet_size)
-            self.msg_type = 'data'
-            if self.seqno == 0:
+        if len(self.message) == 0
+            message = self.infile.read(self.packet_size)
+            self.message = 'data'
+
                 self.msg_type = 'start'
             elif msg == "":
-                self.msg_type = 
                 self.last_packet_no = self.seqno
                 self.infile.close()
 
-            packet = self.make_packet(self.msg_type, self.seqno, msg)
-            self.message[self.seqno] = packet
-            if len(self.message) > 2 * self.window:
-                del self.message[self.seqno-self.window]
-            self.seqno += 1
 
     def send_five(self, ack_no):
         window_start = ack_no
@@ -82,7 +75,7 @@ class Sender(BasicSender.BasicSender):
                 # ack_no is always the last received ack
                 if self.ack_no <= self.ack_number(response):
                     self.ack_no = self.ack_number(response)
-#            self.send(self.message[self.current])
+
 #            if self.window == self.last_packet_no:
             if ack_no >= len(message):
                 break
@@ -90,12 +83,15 @@ class Sender(BasicSender.BasicSender):
     def ack_number(self, response):
         return int(response.split('|')[1])
 
-    def increment_current(self):
-        self.current += 1
-#        if self.current >= (self.window + self.window):
-#           self.current = self.window
-#        if self.current > self.last_packet_no and self.last_packet_no is not None:
-#            self.current = self.last_packet_no
+    def handle_timeout(self):
+        pass
+
+    def handle_dup_ack(self, ack):
+        pass
+
+    def log(self, msg):
+        if self.debug:
+            print msg
 
 '''
 This will be run if you run this script from the command line. You should not
